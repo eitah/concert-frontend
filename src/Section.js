@@ -1,4 +1,4 @@
-/* eslint react/prop-types:0 */
+/* eslint react/prop-types:0 no-console:0 */
 import Seat from './Seat';
 import React from 'react';
 // import { render } from 'react-dom';
@@ -21,7 +21,7 @@ class Section extends React.Component {
   render() {
     let buttonSeats = [];
     buttonSeats = this.totalSeats.map((e) =>
-      <Seat key={e} seatName={e} seatClass={this.props.sectionName} />);
+      <Seat key={e} ref={e} seatName={e} seatClass={this.props.sectionName} />);
     console.log('buttonseats is ', buttonSeats);
 
     return (
