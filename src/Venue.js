@@ -26,7 +26,7 @@ class Venue extends React.Component {
         startingSeatNumber={this.state.startingSeatNumber}
       />);
 
-    const newStartingSeat = this.props.startingSeatNumber + this.refs.quantity.value * 1;
+    const newStartingSeat = this.state.startingSeatNumber + this.refs.quantity.value * 1;
 
     this.setState({ startingSeatNumber: newStartingSeat });
 
@@ -47,7 +47,7 @@ class Venue extends React.Component {
       <div>
         <h2> {this.venueName} </h2>
         <div>
-          <input type="number" name="quantity" ref="quantity"/> Quantity of Seats Required
+          <input type="number" name="quantity" ref="quantity" value="20" /> Quantity of Seats Required
         </div>
         <div>
           <select name="typeSeatsDropdown" ref="typeSeatsDropdown">
@@ -56,7 +56,7 @@ class Venue extends React.Component {
           </select>
         </div>
         <div>
-          <input type="number" name="costPerSeat" ref="costPerSeat" /> Cost Per Seat
+          <input type="number" name="costPerSeat" ref="costPerSeat" value="100" /> Cost Per Seat
         </div>
         <div>
           <button type="submit" onClick={this.makeSeats}>Make Seats</button>

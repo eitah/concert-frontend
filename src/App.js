@@ -10,12 +10,6 @@ export default () =>
     </h1>
 
     <div>
-      <Venue controller venueName="Venue Controller" startingSeatNumber={71} />
-    </div>
-
-
-    <div>
-      <Section sectionName="premium" quantity={20} costPerSeat={200} startingSeatNumber={1} />
-      <Section sectionName="general" quantity={50} costPerSeat={40} startingSeatNumber={21} />
+      <Venue controller venueName="Venue Controller" startingSeatNumber={1} />
     </div>
   </div>;

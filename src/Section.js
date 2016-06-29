@@ -9,7 +9,7 @@ class Section extends React.Component {
   constructor(props) {
     console.log('props:', props);
     super(props);
-    this.state = { seatsPurchased: [] };
+    this.setState({ seatsPurchased: [] });
     this.totalSeats = [];
     for (let i = this.props.startingSeatNumber;
       i < this.props.startingSeatNumber + this.props.quantity; i++) {
@@ -17,21 +17,35 @@ class Section extends React.Component {
     }
   }
 
+  componentDidMount(){
+    console.log('refs*******:', this);
+  }
 
   render() {
+    console.log('render****');
     let buttonSeats = [];
-    buttonSeats = this.totalSeats.map((e) =>
-      <Seat key={e} ref={e} seatName={e} seatClass={this.props.sectionName} />);
+    buttonSeats = this.totalSeats.map((e,i) =>
+      <Seat key={e} ref={'r'+i} seatName={e} seatClass={this.props.sectionName} />);
     console.log('buttonseats is ', buttonSeats);
+
+    console.log('refs is', buttonSeats.refs);
+    // debugger;
+
+    let numPurchasedSeats = 0
+    // numPurchasedSeats = this.buttonSeats.reduce((total, this.refs.seatName.isPurchased) =>
+    // {total + seat.isPurchased;}, 0)
+    console.log('numPurchasedSeats', numPurchasedSeats);
 
     return (
       <div>
-        <h3> Section Name: {this.props.sectionName}</h3>
+        <h3> Section Name: {this.props.sectionName} </h3>
+        <h4> Cost per Seat: {this.props.costPerSeat} </h4>
+        <h4> Total of Section: {numPurchasedSeats} </h4>
         {buttonSeats}
       </div>
     );
   }
 }
-
+<div> 
 
 export default Section;
